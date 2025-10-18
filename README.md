@@ -60,7 +60,7 @@ ollama serve
 
 ```bash
 # Navigate to project directory
-cd ollama-flask-api
+cd flask-ollama-inference-api
 
 # Create virtual environment
 python -m venv venv
