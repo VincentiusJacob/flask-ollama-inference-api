@@ -2,6 +2,9 @@
 
 This guide helps you quickly set up and test the Ollama Flask API project.
 
+Before starting, open your terminal (Command Prompt / PowerShell on Windows, or Terminal on macOS/Linux).
+All commands below will be run from a terminal window.
+
 ### Step 1: Install Ollama
 
 **macOS:**
@@ -17,11 +20,13 @@ curl -fsSL https://ollama.ai/install.sh | sh
 ```
 
 **Windows:**
-Download installer from [https://ollama.ai/download](https://ollama.ai/download)
+Download installer for Windows from [https://ollama.ai/download](https://ollama.ai/download)
 
 ---
 
 ### Step 2: Download the Model
+
+In your terminal, run:
 
 ```bash
 ollama pull mistral:latest
@@ -32,6 +37,8 @@ ollama pull mistral:latest
 ---
 
 ### Step 3: Verify Ollama
+
+Still in the same terminal, check if Ollama is working:
 
 ```bash
 ollama list
@@ -48,15 +55,23 @@ mistral:latest    ............    4.4 GB    X minutes ago
 
 ### Step 4: Start Ollama Service
 
+Keep Ollama running while using the API
+Start it in your first terminal window
+
 ```bash
 ollama serve
 ```
 
+Keep this terminal open, as it runs the background model server that Flask will connect to.
+
 ---
 
-### Step 5: Install Python Dependencies
+### Step 5: Setup Flask App
+
+Open a new terminal window so Ollama keeps running in the first one
 
 **Open a NEW terminal:**
+In this new terminal:
 
 ```bash
 # Clone the repository
@@ -80,6 +95,8 @@ pip install -r requirements.txt
 ---
 
 ### Step 6: Run the Flask App
+
+In the same terminal (where Flask is set up), start the server:
 
 ```bash
 python app.py
@@ -141,13 +158,14 @@ curl -X POST http://localhost:6000/inference \
 
 ## Testing with Postman
 
-1. **Method:** POST
-2. **URL:** `http://localhost:6000/inference`
-3. **Headers:** `Content-Type: application/json`
-4. **Body (raw JSON):**
+1. Open **Postman**
+1. Set **Method**: POST
+1. Set **URL:** `http://localhost:6000/inference`
+1. Under **Headers:** add `Content-Type: application/json`
+1. Under **Body (raw -> JSON):** add
    ```json
    {
      "prompt": "What is machine learning?"
    }
    ```
-5. **Click Send**
+1. **Click Send**
