@@ -59,6 +59,9 @@ ollama serve
 **Open a NEW terminal:**
 
 ```bash
+# Clone the repository
+git clone https://github.com/VincentiusJacob/flask-ollama-inference-api.git
+
 # Navigate to project directory
 cd flask-ollama-inference-api
 
