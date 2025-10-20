@@ -108,6 +108,10 @@ python app.py
 
 ## Testing with Terminal
 
+Open a new terminal while keep both previous terminals running.
+In the new terminal:
+
+
 ```bash
 curl -X POST http://localhost:6000/inference \
   -H "Content-Type: application/json" \
